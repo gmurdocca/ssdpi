@@ -6,15 +6,15 @@ An quick and dirty payload-inspecting "DPI" firewall built as a demo/POC.
 
 Create a Python 3.8.0 virtualenv (eg using pyenv).
 
-Install system dep:
+Install system deps:
 ```
 # eg RHEL9 and clones:
 sudo dnf --enablerepo crb install libnetfilter_queue-devel
 ```
 
-install Python dep:
+install Python deps:
 ```
-pip3.8 install -U git+https://github.com/kti/python-netfilterqueue
+pip3.8 install -r requirements.txt
 ```
 
 ## Usage
