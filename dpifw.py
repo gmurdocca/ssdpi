@@ -8,7 +8,6 @@ import re
 import sys
 
 from netfilterqueue import NetfilterQueue
-#from scapy.all import IP
 
 ARMED = True if len(sys.argv) > 1 and sys.argv[1].lower() == "arm" else False
 BAD_PATTERNS ={
@@ -17,7 +16,6 @@ BAD_PATTERNS ={
 
 def filter(pkt):
     print(f"Analysing packet: {pkt}...", end="")
-    #packet = IP(pkt.get_payload())
     for label, pattern in BAD_PATTERNS.items():
         if re.search(pattern, pkt.get_payload()):
             if ARMED:
