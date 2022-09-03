@@ -9,7 +9,7 @@ import sys
 
 from netfilterqueue import NetfilterQueue
 
-ARMED = True if len(sys.argv) > 1 and sys.argv[1].lower() == "arm" else False
+ARMED = True if len(sys.argv) > 1 and sys.argv[1].lower() == "armed" else False
 BAD_PATTERNS ={
     "SSH": re.compile(b"SSH-2.0-OpenSSH_.+\r\n$"),
 }
@@ -30,7 +30,7 @@ def filter(pkt):
 
 if __name__ == "__main__":
     state = ARMED and "Armed" or "Disarmed"
-    print(f"\n--==] The Stunningly Shithouse DPI Firewall ]==--")
+    print(f"\n--==[ The Stunningly Shithouse DPI Firewall ]==--")
     print(f"     State: {state}. Listening for traffic...\n")
     nfqueue = NetfilterQueue()
     nfqueue.bind(1, filter)
